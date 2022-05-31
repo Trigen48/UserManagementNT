@@ -1,0 +1,60 @@
+﻿@model UserManagementNT1.Areas.Identity.Data.AccountUser
+
+@{
+    ViewData["Title"] = "My profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row border border-2">
+    <h2 class="bg-success text-light p-2">My Profile</h2>
+    <div class="">
+        <form asp-action="Home">
+       
+            <div class="row">
+                <div class="pt-2 form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="pt-2 form-group">
+                    <label asp-for="Surname" class="control-label"></label>
+                    <input asp-for="Surname" class="form-control" />
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="pt-2 form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input disabled="" name="Email" value="@Model.Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="pt-2 form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input disabled="" name="PhoneNumber" value="@Model.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="pt-2 form-group">
+                    <label asp-for="Age" class="control-label"></label>
+                    <input  disabled="" name="Age" value="Age" class="form-control" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+   
+                <div class="pt-2 form-group">
+                    <label asp-for="Hobbies" class="control-label"></label>
+                    <textarea asp-for="Hobbies" class="form-control" ></textarea>
+                    <span asp-validation-for="Hobbies" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group p-2">
+                <input type="submit" value="Update Profile" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

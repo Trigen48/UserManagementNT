@@ -1,0 +1,69 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+   Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<div class="">
+    <div class="col-md-6 offset-md-3 card-content border border-1">
+
+      <h2 class="bg-primary text-white p-3">Create a new account.</h2>
+        <form class="p-2" id="registerForm" asp-route-returnUrl="~/" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="p-2 form-floating">
+                <input asp-for="Input.FirstName" class="form-control"  aria-required="true" />
+                <label asp-for="Input.FirstName"></label>
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+            <div class="p-2 form-floating">
+                <input asp-for="Input.Surname" class="form-control" aria-required="true" />
+                <label asp-for="Input.Surname"></label>
+                <span asp-validation-for="Input.Surname" class="text-danger"></span>
+            </div>
+            <div class="p-2 form-floating">
+                <input asp-for="Input.Age" class="form-control" aria-required="true" />
+                <label asp-for="Input.Age"></label>
+                <span asp-validation-for="Input.Age" class="text-danger"></span>
+            </div>
+            <div class="p-2 form-floating">
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.Email"></label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+             <div class="p-2 form-floating">
+                <input asp-for="Input.PhoneNumber" class="form-control" aria-required="true" />
+                <label asp-for="Input.PhoneNumber"></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="p-2 form-floating">
+                <textarea asp-for="Input.Hobbies" class="form-control" aria-required="true" ></textarea>
+                <label asp-for="Input.Hobbies"></label>
+                <span asp-validation-for="Input.Hobbies" class="text-danger"></span>
+            </div>
+            <div class="p-2 form-floating">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.Password"></label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="p-2 form-floating">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.ConfirmPassword"></label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="pt-3 text-center">
+
+                <button id="registerSubmit" type="submit" class="w-25 btn btn-lg btn-primary">Register</button>
+                <a class="w-25 btn btn-lg btn-success" asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Login</a>
+               
+            </div>
+            
+        </form>
+   </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

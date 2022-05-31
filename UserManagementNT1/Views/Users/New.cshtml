@@ -1,0 +1,89 @@
+﻿@model UserManagementNT1.Models.UserNewModel
+
+@{
+    ViewData["Title"] = "New User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row border border-4">
+    <h2 class="bg-dark text-light p-2">New User</h2>
+    <div class="">
+        <form asp-action="New">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="row">
+                <div class="col pt-2 form-group">
+                    <label asp-for="User.FirstName" class="control-label"></label>
+                    <input asp-for="User.FirstName" class="form-control" />
+                    <span asp-validation-for="User.FirstName" class="text-danger"></span>
+                </div>
+                <div class="col pt-2 form-group">
+                    <label asp-for="User.Surname" class="control-label"></label>
+                    <input asp-for="User.Surname" class="form-control" />
+                    <span asp-validation-for="User.Surname" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col pt-2 form-group">
+                    <label asp-for="User.Email" class="control-label"></label>
+                    <input asp-for="User.Email" class="form-control" />
+                    <span asp-validation-for="User.Email" class="text-danger"></span>
+                </div>
+                <div class="col pt-2 form-group">
+                    <label asp-for="User.PhoneNumber" class="control-label"></label>
+                    <input asp-for="User.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="User.PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col pt-2 form-group">
+                    <label asp-for="User.Age" class="control-label"></label>
+                    <input asp-for="User.Age" class="form-control" />
+                    <span asp-validation-for="User.Age" class="text-danger"></span>
+                </div>
+
+                <div class="col pt-2 form-group">
+                    <label asp-for="User.Role" class="control-label"></label>
+               
+                    <select asp-for="User.Role" class="form-control" >
+                        @foreach (var item in Model.UserRoles)
+                        {
+                            <option value="@item.Name" >@item.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="User.Role" class="text-danger"></span>
+                </div>       
+            </div>
+
+             <div class="row">
+                <div class="col pt-2 form-group">
+                    <label asp-for="User.Hobbies" class="control-label"></label>
+                    <textarea asp-for="User.Hobbies" class="form-control" ></textarea>
+                    <span asp-validation-for="User.Hobbies" class="text-danger"></span>
+                </div>
+
+                <div class="col pt-2 form-group">
+                    <label asp-for="User.Password" class="control-label"></label>
+                    <input type="password" asp-for="User.Password" class="form-control" />
+                    <span asp-validation-for="User.Password" class="text-danger"></span>
+                </div>   
+            </div>
+
+
+    
+            <div class="form-group p-2">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container p-1">
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+</div>
+

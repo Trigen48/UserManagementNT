@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using UserManagementNT1.Areas.Identity.Data
+
+@inject SignInManager<AccountUser> SignInManager
+@inject UserManager<AccountUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    
+        @if(User.IsInRole("Admin"))
+        {
+            <a class="nav-link text-dark" href="/Users/">Manage Users</a>
+        }
+        @if(User.IsInRole("Admin") ||User.IsInRole("Reporter"))
+        {
+            <a class="nav-link text-dark" href="/AuditLogs/">Audit Logs</a>
+        }
+
+}
+
+
