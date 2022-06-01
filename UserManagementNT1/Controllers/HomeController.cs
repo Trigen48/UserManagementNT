@@ -26,13 +26,8 @@ namespace UserManagementNT1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(string id, [Bind("FirstName,Surname,Hobbies")] AccountUser userModel)
+        public async Task<IActionResult> Index([Bind("FirstName,Surname,Hobbies")] AccountUser userModel)
         {
-
-            if (id == null || _userManager == null)
-            {
-                return NotFound();
-            }
 
             var user = await _userManager.GetUserAsync(User);
 
